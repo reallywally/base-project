@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: mall
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/malldb
+    username: malldbuser
+    password: malldbuser
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
