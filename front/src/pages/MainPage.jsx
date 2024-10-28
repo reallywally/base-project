@@ -1,7 +1,16 @@
+import { Link } from "react-router-dom";
+
 const MainPage = () =>{
-return (
-    <div className="text-3xl underline">
-        <div>main page</div>
+    return (
+        <div>
+
+        <div className="flex">
+        <Link to={'about'}> about</Link>
+        </div>
+        <div className="text-3xl">
+            main page
+        </div>
+
     </div>
 );
 }
