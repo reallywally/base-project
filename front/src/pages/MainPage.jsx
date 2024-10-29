@@ -1,18 +1,12 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import BasicLayout from "../layouts/BasicLayout";
 
-const MainPage = () =>{
-    return (
-        <div>
+const MainPage = () => {
+  return (
+    <BasicLayout>
+      <div className="text-3xl">메인</div>
+    </BasicLayout>
+  );
+};
 
-        <div className="flex">
-        <Link to={'about'}> about</Link>
-        </div>
-        <div className="text-3xl">
-            main page
-        </div>
-
-    </div>
-);
-}
-
-export default MainPage
+export default MainPage;

@@ -1,9 +1,11 @@
-const AboutPage = () =>{
-return (
-    <div className="text-3xl">
-        <div>about page</div>
-    </div>
-);
-}
+import BasicLayout from "../layouts/BasicLayout";
 
-export default AboutPage
+const AboutPage = () => {
+  return (
+    <BasicLayout>
+      <div className="text-3xl">about page</div>
+    </BasicLayout>
+  );
+};
+
+export default AboutPage;
