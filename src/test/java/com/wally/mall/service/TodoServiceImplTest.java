@@ -1,5 +1,7 @@
 package com.wally.mall.service;
 
+import com.wally.mall.dto.PageRequestDTO;
+import com.wally.mall.dto.PageResponseDTO;
 import com.wally.mall.dto.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
@@ -35,5 +37,14 @@ class TodoServiceImplTest {
         Long tno = 100L;
         TodoDTO todoDTO = todoService.get(tno);
         log.info(todoDTO);
+    }
+
+    @Test
+    public void testList(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().page(2).size(10).build();
+
+        PageResponseDTO<TodoDTO> response = todoService.list(pageRequestDTO);
+
+        log.info(response);
     }
 }

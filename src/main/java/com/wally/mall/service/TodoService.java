@@ -1,5 +1,7 @@
 package com.wally.mall.service;
 
+import com.wally.mall.dto.PageRequestDTO;
+import com.wally.mall.dto.PageResponseDTO;
 import com.wally.mall.dto.TodoDTO;
 
 public interface TodoService {
@@ -10,4 +12,6 @@ public interface TodoService {
     void modify(TodoDTO todoDTO);
 
     void remove(Long tno);
+
+    PageResponseDTO<TodoDTO> list(PageRequestDTO pageRequestDTO);
 }
