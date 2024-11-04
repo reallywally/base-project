@@ -4,3 +4,30 @@ GET http://localhost:8080/api/todo/33
 
 ### 목록 조회
 GET http://localhost:8080/api/todo/list?page=2&size=10
+
+
+### 등록
+POST http://localhost:8080/api/todo/
+Content-Type: application/json
+
+{
+  "title": "ddd",
+  "writer": "sss",
+  "complete": false,
+  "dueDate": "2026-01-01"
+}
+
+### 수정
+PUT http://localhost:8080/api/todo/100
+Content-Type: application/json
+
+{
+  "title": "123123",
+  "writer": "sss",
+  "complete": true,
+  "dueDate": "2026-01-01"
+}
+
+### 삭제
+DELETE http://localhost:8080/api/todo/100
+Content-Type: application/json

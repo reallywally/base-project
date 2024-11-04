@@ -6,10 +6,9 @@ import com.wally.mall.dto.TodoDTO;
 import com.wally.mall.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @Log4j2
 @RestController
@@ -28,5 +27,35 @@ public class TodoController {
         log.info(pageRequestDTO);
 
         return todoService.list(pageRequestDTO);
+    }
+
+    @PostMapping("/")
+    public Map<String, Long> register(@RequestBody TodoDTO todoDTO){
+        log.info("todo DTO: " + todoDTO);
+
+        Long tno = todoService.register(todoDTO);
+
+        return Map.of("TNO", tno);
+    }
+
+    @PutMapping("/{tno}")
+    public Map<String, String> modify(
+            @PathVariable Long tno,
+            @RequestBody TodoDTO todoDTO) {
+
+        todoDTO.setTno(tno);
+
+        todoService.modify(todoDTO);
+
+        return Map.of("result", "success");
+    }
+
+    @DeleteMapping("/{tno}")
+    public Map<String, String> remove(
+            @PathVariable Long tno) {
+
+        todoService.remove(tno);
+
+        return Map.of("result", "success");
     }
 }
