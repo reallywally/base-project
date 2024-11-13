@@ -1,13 +1,15 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, ReactNode, ComponentType, ReactElement } from "react";
 import { Navigate } from "react-router-dom";
 
-const Loading = <div> Loading...</div>;
-const TodoList = lazy(() => import("../pages/todo/ListPage"));
-const TodoRead = lazy(() => import("../pages/todo/ReadPage"));
-const TodoAdd = lazy(() => import("../pages/todo/AddPage"));
-const TodoModify = lazy(() => import("../pages/todo/ModifyPage"));
+const Loading: ReactNode = <div>Loading....</div>;
+const TodoList: ComponentType = lazy(() => import("../pages/todo/ListPage"));
+const TodoRead: ComponentType = lazy(() => import("../pages/todo/ReadPage"));
+const TodoAdd: ComponentType = lazy(() => import("../pages/todo/AddPage"));
+const TodoModify: ComponentType = lazy(
+  () => import("../pages/todo/ModifyPage")
+);
 
-const todoRouter = () => {
+const todoRouter = (): Array<{ path: string; element: ReactElement }> => {
   return [
     {
       path: "list",
@@ -30,18 +32,18 @@ const todoRouter = () => {
       ),
     },
     {
-      path: "add",
-      element: (
-        <Suspense fallback={Loading}>
-          <TodoAdd />
-        </Suspense>
-      ),
-    },
-    {
       path: "modify/:tno",
       element: (
         <Suspense fallback={Loading}>
           <TodoModify />
+        </Suspense>
+      ),
+    },
+    {
+      path: "add",
+      element: (
+        <Suspense fallback={Loading}>
+          <TodoAdd />
         </Suspense>
       ),
     },

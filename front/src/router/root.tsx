@@ -1,12 +1,16 @@
-import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import todoRouter from "./todoRouter";
+import { ComponentType, lazy, ReactNode, Suspense } from "react";
+import todoRouter from "./todoRouter.tsx";
 
-const Loading = <div> Loading...</div>;
-const Main = lazy(() => import("../pages/MainPage"));
-const About = lazy(() => import("../pages/AboutPage"));
-const TodoIndex = lazy(() => import("../pages/todo/IndexPage"));
-const TodoList = lazy(() => import("../pages/todo/ListPage"));
+const Loading: ReactNode = <div>Loading,,,,</div>;
+
+const Main: ComponentType = lazy(() => import("../pages/MainPage"));
+
+const About: ComponentType = lazy(() => import("../pages/AboutPage"));
+
+const TodoIndex: ComponentType = lazy(
+  () => import("../pages/todo/IndexPage.tsx")
+);
 
 const root = createBrowserRouter([
   {
