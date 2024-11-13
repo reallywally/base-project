@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-request-size: 30MB
+      max-file-size: 10MB
   application:
     name: mall
   datasource:
@@ -14,3 +18,8 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+
+org:
+  zerock:
+    upload:
+      path: upload

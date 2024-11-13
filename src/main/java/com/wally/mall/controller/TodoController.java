@@ -4,6 +4,7 @@ import com.wally.mall.dto.PageRequestDTO;
 import com.wally.mall.dto.PageResponseDTO;
 import com.wally.mall.dto.TodoDTO;
 import com.wally.mall.service.TodoService;
+import com.wally.mall.service.TodoServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/api/todo") // 나중에 todos로 수정
 @RequiredArgsConstructor
 public class TodoController {
-    private final TodoService todoService;
+    private final TodoServiceImpl todoService;
 
     @GetMapping("{tno}")
     public TodoDTO get(@PathVariable Long tno) {
